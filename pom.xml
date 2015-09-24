@@ -1,0 +1,46 @@
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.cooldatasoft.rest</groupId>
+  <artifactId>rest-performance-parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <properties>
+    <jdk.version>1.8</jdk.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <!-- http://maven.apache.org/plugins/maven-compiler-plugin/ -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>${jdk.version}</source>
+          <target>${jdk.version}</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <modules>
+    <module>jetty-cxf</module>
+    <module>jetty-jersey</module>
+    <module>jetty-resteasy</module>
+    <module>jetty-springmvc</module>
+
+    <module>tomcat-cxf</module>
+    <module>tomcat-jersey</module>
+    <module>tomcat-resteasy</module>
+    <module>tomcat-springmvc</module>
+
+    <module>undertow-cxf</module>
+    <module>undertow-jersey</module>
+    <module>undertow-resteasy</module>
+    <module>undertow-springmvc</module>
+  </modules>
+</project>
