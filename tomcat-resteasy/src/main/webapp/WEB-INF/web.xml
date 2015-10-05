@@ -20,7 +20,7 @@
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>com.cooldatasoft.AppConfig</param-value>
+		<param-value>com.cooldatasoft.rest.config.AppConfig</param-value>
 	</context-param>
 
 	<listener>

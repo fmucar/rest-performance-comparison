@@ -16,7 +16,7 @@
 	</context-param>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>com.cooldatasoft.rest.config.AppConfig</param-value>
+		<param-value>com.cooldatasoft.AppConfig</param-value>
 	</context-param>
 
 
@@ -39,7 +39,7 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>
-				com.cooldatasoft.rest.config.AppConfig
+				com.cooldatasoft.AppConfig
 			</param-value>
 		</init-param>
 	</servlet>
