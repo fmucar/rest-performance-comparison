@@ -12,7 +12,6 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
     <spring.version>4.2.1.RELEASE</spring.version>
-    <cxf.version>3.1.3</cxf.version>
     <slf4j.version>1.7.12</slf4j.version>
     <jackson.version>1.9.13</jackson.version>
     <lombok.version>1.16.6</lombok.version>
@@ -100,23 +99,6 @@
         <version>${jersey.version}</version>
       </dependency>
 
-      <!-- CXF -->
-      <dependency>
-        <groupId>org.apache.cxf</groupId>
-        <artifactId>cxf-rt-frontend-jaxrs</artifactId>
-        <version>${cxf.version}</version>
-        <scope>compile</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.cxf</groupId>
-        <artifactId>cxf-rt-transports-http</artifactId>
-        <version>${cxf.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.apache.cxf</groupId>
-        <artifactId>cxf-rt-frontend-jaxrs</artifactId>
-        <version>${cxf.version}</version>
-      </dependency>
 
       <!-- SLF4J -->
 
@@ -253,17 +235,14 @@
   </build>
 
   <modules>
-    <module>jetty-cxf</module>
     <module>jetty-jersey</module>
     <module>jetty-resteasy</module>
     <module>jetty-springmvc</module>
 
-    <module>tomcat-cxf</module>
     <module>tomcat-jersey</module>
     <module>tomcat-resteasy</module>
     <module>tomcat-springmvc</module>
 
-    <module>undertow-cxf</module>
     <module>undertow-jersey</module>
     <module>undertow-resteasy</module>
     <module>undertow-springmvc</module>
