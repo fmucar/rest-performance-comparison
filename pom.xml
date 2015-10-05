@@ -231,21 +231,19 @@
         </configuration>
       </plugin>
 
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>9.3.4.RC0</version>
+      </plugin>
     </plugins>
   </build>
 
   <modules>
-    <module>jetty-jersey</module>
-    <module>jetty-resteasy</module>
-    <module>jetty-springmvc</module>
 
-    <module>tomcat-jersey</module>
-    <module>tomcat-resteasy</module>
-    <module>tomcat-springmvc</module>
-
-    <module>undertow-jersey</module>
-    <module>undertow-resteasy</module>
-    <module>undertow-springmvc</module>
+    <module>jersey-sample</module>
+    <module>resteasy-sample</module>
+    <module>springmvc-sample</module>
 
     <module>rest-util</module>
     <module>rest-data</module>
