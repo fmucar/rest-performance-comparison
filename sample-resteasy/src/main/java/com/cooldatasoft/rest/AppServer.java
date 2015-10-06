@@ -21,7 +21,7 @@ import io.undertow.servlet.api.ListenerInfo;
 
 public class AppServer {
 
-    public static void main2(String[] args) {
+    public static void main(String[] args) {
         try {
 
             DeploymentInfo servletBuilder = Servlets.deployment()
