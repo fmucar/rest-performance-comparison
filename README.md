@@ -1,3 +1,4 @@
 # rest-performance-comparison
 
-readme
+* jetty     : mvn jetty:run
+* undertow  : mvn exec:java
