@@ -1,4 +1,4 @@
-package com.cooldatasoft.rest.resource.impl;
+package com.cooldatasoft.rest.resource;
 
 import java.util.List;
 
@@ -24,7 +24,7 @@ import com.cooldatasoft.rest.service.SampleService;
 @Path("/sample")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class SampleResourceImpl {
+public class SampleResource {
 
 	@Inject
 	private SampleService sampleService;

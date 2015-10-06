@@ -236,6 +236,23 @@
         <artifactId>jetty-maven-plugin</artifactId>
         <version>9.3.4.RC0</version>
       </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>1.4.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>java</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <mainClass>com.cooldatasoft.rest.AppServer</mainClass>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
 
