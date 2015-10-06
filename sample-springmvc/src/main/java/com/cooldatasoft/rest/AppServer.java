@@ -2,8 +2,8 @@ package com.cooldatasoft.rest;
 
 import javax.servlet.ServletException;
 
-import org.glassfish.jersey.servlet.ServletContainer;
 import org.springframework.web.context.ContextLoaderListener;
+import org.springframework.web.servlet.DispatcherServlet;
 
 import io.undertow.Handlers;
 import io.undertow.Undertow;
@@ -28,12 +28,10 @@ public class AppServer {
                     .addListener(new ListenerInfo(ContextLoaderListener.class))
 
                     .addServlets(
-                            Servlets.servlet("ExampleServlet", ServletContainer.class)
-                                    .addInitParam("jersey.config.server.provider.packages", "com.cooldatasoft.rest.resource")
+                            Servlets.servlet("ExampleServlet", DispatcherServlet.class)
+                                    .addInitParam("contextClass", "org.springframework.web.context.support.AnnotationConfigWebApplicationContext")
+                                    .addInitParam("contextConfigLocation", "com.cooldatasoft.AppConfig")
                                     .addMapping("/v1/*")
-                                    .addInitParam("jersey.config.server.provider.classnames", "org.codehaus.jackson.jaxrs.JacksonJsonProvider")
-                                    .addInitParam("jersey.config.disableMoxyJson", "true")
-                                    .setLoadOnStartup(1)
                     );
 
             DeploymentManager manager = Servlets.defaultContainer().addDeployment(servletBuilder);

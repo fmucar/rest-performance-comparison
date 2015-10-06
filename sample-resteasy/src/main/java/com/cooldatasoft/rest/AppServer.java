@@ -2,8 +2,13 @@ package com.cooldatasoft.rest;
 
 import javax.servlet.ServletException;
 
-import org.glassfish.jersey.servlet.ServletContainer;
-import org.springframework.web.context.ContextLoaderListener;
+import org.jboss.resteasy.plugins.server.servlet.HttpServlet30Dispatcher;
+import org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap;
+import org.jboss.resteasy.plugins.server.undertow.UndertowJaxrsServer;
+import org.jboss.resteasy.plugins.spring.SpringContextLoaderListener;
+import org.jboss.resteasy.spi.ResteasyDeployment;
+
+import com.sun.org.apache.regexp.internal.RE;
 
 import io.undertow.Handlers;
 import io.undertow.Undertow;
@@ -16,24 +21,21 @@ import io.undertow.servlet.api.ListenerInfo;
 
 public class AppServer {
 
-    public static void main(String[] args) {
+    public static void main2(String[] args) {
         try {
 
             DeploymentInfo servletBuilder = Servlets.deployment()
                     .setClassLoader(AppServer.class.getClassLoader())
                     .setContextPath("/")
                     .setDeploymentName("test.war")
+                    .addInitParameter("resteasy.servlet.mapping.prefix", "/v1")
                     .addInitParameter("contextClass", "org.springframework.web.context.support.AnnotationConfigWebApplicationContext")
                     .addInitParameter("contextConfigLocation", "com.cooldatasoft.rest.config.AppConfig")
-                    .addListener(new ListenerInfo(ContextLoaderListener.class))
-
+                    .addListener(new ListenerInfo(ResteasyBootstrap.class))
+                    .addListener(new ListenerInfo(SpringContextLoaderListener.class))
                     .addServlets(
-                            Servlets.servlet("ExampleServlet", ServletContainer.class)
-                                    .addInitParam("jersey.config.server.provider.packages", "com.cooldatasoft.rest.resource")
+                            Servlets.servlet("ExampleServlet", HttpServlet30Dispatcher.class)
                                     .addMapping("/v1/*")
-                                    .addInitParam("jersey.config.server.provider.classnames", "org.codehaus.jackson.jaxrs.JacksonJsonProvider")
-                                    .addInitParam("jersey.config.disableMoxyJson", "true")
-                                    .setLoadOnStartup(1)
                     );
 
             DeploymentManager manager = Servlets.defaultContainer().addDeployment(servletBuilder);
