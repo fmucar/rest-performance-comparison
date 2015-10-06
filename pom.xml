@@ -241,9 +241,9 @@
 
   <modules>
 
-    <module>jersey-sample</module>
-    <module>resteasy-sample</module>
-    <module>springmvc-sample</module>
+    <module>sample-jersey</module>
+    <module>sample-resteasy</module>
+    <module>sample-springmvc</module>
 
     <module>rest-util</module>
     <module>rest-data</module>
